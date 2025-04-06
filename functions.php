@@ -54,3 +54,24 @@ add_theme_support('custom-header');
 add_theme_support('post-thumbnails');
 // Add Post Format theme support for formating post page
 add_theme_support('post-formats', array('aside', 'image', 'video'));
+
+/*
+        ====================================================
+        Add Post Format column on the All posts admin panel
+        ====================================================
+*/
+// Add column
+function add_post_format_column($columns) {
+    $columns['post_format'] = __('Post Format', 'text_domain');
+    return $columns;
+}
+add_filter('manage_posts_columns', 'add_post_format_column');
+
+//Populate Post Format column
+function populate_post_format_column($column, $post_id) {
+    if ($column === 'post_format') {
+        $format = get_post_format($post_id);
+        echo $format ? ucfirst($format) : __('Standard', 'text_domain');
+    }
+}
+add_action('manage_posts_custom_column', 'populate_post_format_column', 10, 2);
