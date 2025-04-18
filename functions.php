@@ -75,3 +75,10 @@ function populate_post_format_column($column, $post_id) {
     }
 }
 add_action('manage_posts_custom_column', 'populate_post_format_column', 10, 2);
+
+add_filter('nav_menu_css_class', function($classes, $item) {
+    // Uncomment below to debug
+    // error_log(print_r($classes, true));
+    return $classes;
+}, 10, 2);
+

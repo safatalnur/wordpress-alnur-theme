@@ -94,5 +94,44 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+.menu-icon {
+  margin-right: 10px;
+}
+
+.fa-home .menu-icon::before {
+  content: "\f015"; /* home icon for Font Awesome */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.fa-contact .menu-icon::before {
+  content: "\f2b9"; /* contact address */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.fa-about .menu-icon::before {
+  content: "\f2bd"; /* contact address */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.fa-blog .menu-icon::before {
+  content: "\f781"; /* contact address */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+#main-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+@media only screen and (max-width: 991px) {
+  #main-menu {
+    flex-direction: column;
+  }
+}
 
 /*# sourceMappingURL=custom_style.css.map */
