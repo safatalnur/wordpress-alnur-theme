@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     
     <h1>Hello World!!!!</h1>
-    <h3>Hello there</h3><i class="fa-solid fa-face-smile"></i>
+    <h3>Hello there<i class="fa-solid fa-face-smile"></i></h3>
 
     <?php 
     if(have_posts() ) :
