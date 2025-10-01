@@ -82,3 +82,26 @@ add_filter('nav_menu_css_class', function($classes, $item) {
     return $classes;
 }, 10, 2);
 
+/*
+        ====================================================
+        Sidebar function
+        ====================================================
+*/
+function alnur_theme_widget_setup() {
+    register_sidebar(
+        array(
+            'name'  => 'Sidebar',
+            'id'    => 'sidebar-1',
+            'class' => 'custom',
+            'description'   => 'Standard sidebar',
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h2 class="widget-title custom-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+}
+
+add_action('widgets_init', 'alnur_theme_widget_setup');
+// To show the classic widgets screen with available widget options, use block editor
+add_filter( 'use_widgets_block_editor', '__return_false' );
