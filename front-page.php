@@ -31,7 +31,12 @@
         <?php endif; ?>
         <!-- Post New query post -->
         <?php
-            $lastBlog = new WP_Query('type=post&posts_per_page=2&offset=1');
+            $args = array(
+                'type'  => 'post',
+                'posts_per_page'    => -1,
+                'offset'     => 1,
+            );
+            $lastBlog = new WP_Query($args);
             // var_dump($lastBlog->posts[0]->post_date_gmt); // Check on posts
             if ($lastBlog->have_posts() ):
                 while($lastBlog->have_posts() ) : $lastBlog->the_post();
